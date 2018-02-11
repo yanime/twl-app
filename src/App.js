@@ -9,37 +9,49 @@ import IconButton from "material-ui/IconButton";
 import MenuIcon from "material-ui-icons/Menu";
 import Reboot from "material-ui/Reboot";
 
+import PostList from "./components/PostList";
+
+import { Provider } from "react-redux";
+import configureStore from "./redux/configureStore";
+
+const store = configureStore();
+
 class App extends React.Component {
   render() {
     const theme = createMuiTheme({});
     return (
       <MuiThemeProvider theme={theme}>
         <Reboot />
-        <div>
-          <AppBar position="static">
-            <Toolbar
-              style={{ display: "flex", justifyContent: "space-between" }}
-            >
-              <div style={{ display: "flex" }}>
-                <IconButton color="inherit" aria-label="Menu">
-                  <MenuIcon />
-                </IconButton>
-                <Typography
-                  variant="title"
-                  color="inherit"
-                  style={{
-                    display: "flex",
-                    flexDirection: "column",
-                    justifyContent: "center"
-                  }}
+        <Provider store={store}>
+          <div>
+            <div>
+              <AppBar position="static">
+                <Toolbar
+                  style={{ display: "flex", justifyContent: "space-between" }}
                 >
-                  TWL App
-                </Typography>
-              </div>
-              <Button color="inherit">Login</Button>
-            </Toolbar>
-          </AppBar>
-        </div>
+                  <div style={{ display: "flex" }}>
+                    <IconButton color="inherit" aria-label="Menu">
+                      <MenuIcon />
+                    </IconButton>
+                    <Typography
+                      variant="title"
+                      color="inherit"
+                      style={{
+                        display: "flex",
+                        flexDirection: "column",
+                        justifyContent: "center"
+                      }}
+                    >
+                      TWL App
+                    </Typography>
+                  </div>
+                  <Button color="inherit">Login</Button>
+                </Toolbar>
+              </AppBar>
+            </div>
+            <PostList />
+          </div>
+        </Provider>
       </MuiThemeProvider>
     );
   }
