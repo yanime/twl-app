@@ -1,7 +1,7 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
-import { fetchPosts } from "../redux/actions";
+import { fetchPosts } from '../redux/actions';
 
 class PostList extends Component {
   constructor(props) {
@@ -9,8 +9,7 @@ class PostList extends Component {
   }
 
   componentDidMount() {
-    const { dispatch } = this.props;
-    dispatch(fetchPosts());
+    this.props.dispatch(fetchPosts());
   }
 
   render() {

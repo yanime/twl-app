@@ -1,18 +1,13 @@
-import React from "react";
-import { render } from "react-dom";
-import { MuiThemeProvider, createMuiTheme } from "material-ui/styles";
-import AppBar from "material-ui/AppBar";
-import Toolbar from "material-ui/Toolbar";
-import Typography from "material-ui/Typography";
-import Button from "material-ui/Button";
-import IconButton from "material-ui/IconButton";
-import MenuIcon from "material-ui-icons/Menu";
-import Reboot from "material-ui/Reboot";
+import React from 'react';
+import { render } from 'react-dom';
+import { MuiThemeProvider, createMuiTheme } from 'material-ui/styles';
+import Reboot from 'material-ui/Reboot';
+import Menu from './components/Menu';
 
-import PostList from "./components/PostList";
+import PostList from './components/PostList';
 
-import { Provider } from "react-redux";
-import configureStore from "./redux/configureStore";
+import { Provider } from 'react-redux';
+import configureStore from './redux/configureStore';
 
 const store = configureStore();
 
@@ -24,31 +19,7 @@ class App extends React.Component {
         <Reboot />
         <Provider store={store}>
           <div>
-            <div>
-              <AppBar position="static">
-                <Toolbar
-                  style={{ display: "flex", justifyContent: "space-between" }}
-                >
-                  <div style={{ display: "flex" }}>
-                    <IconButton color="inherit" aria-label="Menu">
-                      <MenuIcon />
-                    </IconButton>
-                    <Typography
-                      variant="title"
-                      color="inherit"
-                      style={{
-                        display: "flex",
-                        flexDirection: "column",
-                        justifyContent: "center"
-                      }}
-                    >
-                      TWL App
-                    </Typography>
-                  </div>
-                  <Button color="inherit">Login</Button>
-                </Toolbar>
-              </AppBar>
-            </div>
+            <Menu />
             <PostList />
           </div>
         </Provider>
