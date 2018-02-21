@@ -5,6 +5,7 @@ import Reboot from 'material-ui/Reboot';
 import Menu from './components/Menu';
 
 import PostList from './components/PostList';
+import LoginPage from './pages/Login';
 
 import { Provider } from 'react-redux';
 import configureStore from './redux/configureStore';
@@ -20,7 +21,7 @@ class App extends React.Component {
         <Provider store={store}>
           <div>
             <Menu />
-            <PostList />
+            <LoginPage />
           </div>
         </Provider>
       </MuiThemeProvider>
