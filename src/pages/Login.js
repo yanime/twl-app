@@ -3,14 +3,10 @@ import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 
 import { auth, googleProvider } from '../fire';
 
-// Configure FirebaseUI.
 const uiConfig = {
-  // Popup signin flow rather than redirect flow.
-  signInFlow: 'popup',
-  // We will display Google and Facebook as auth providers.
+  signInFlow: 'signInWithRedirect',
   signInOptions: [googleProvider],
   callbacks: {
-    // Avoid redirects after sign-in.
     signInSuccess: () => false,
   },
 };
@@ -19,11 +15,10 @@ class LoginPage extends React.Component {
   constructor() {
     super();
     this.state = {
-      signedIn: false, // Local signed-in state.
+      signedIn: false,
     };
   }
 
-  // Listen to the Firebase Auth state and set the local state.
   componentDidMount() {
     auth.onAuthStateChanged(user => this.setState({ signedIn: !!user }));
   }

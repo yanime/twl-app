@@ -7,10 +7,13 @@ export const config = {
   storageBucket: 'twl-app-fd76e.appspot.com',
   messagingSenderId: '406012874299',
 };
-firebase.initializeApp(config);
 
-export let database = firebase.database();
+if (!firebase.apps.length) {
+  firebase.initializeApp(config);
+}
 
-export let auth = firebase.auth();
+export const database = firebase.database();
 
-export let googleProvider = firebase.auth.GoogleAuthProvider.PROVIDER_ID;
+export const auth = firebase.auth();
+
+export const googleProvider = firebase.auth.GoogleAuthProvider.PROVIDER_ID;
