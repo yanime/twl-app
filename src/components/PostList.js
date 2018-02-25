@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import Menu from './Menu';
 
 import { fetchPosts } from '../redux/actions';
 
@@ -15,7 +16,10 @@ class PostList extends Component {
   render() {
     return (
       <div>
-        <span>number of posts {this.props.items.length}</span>
+        <Menu />
+        <div className="post-list">
+          <span>number of posts {this.props.items.length}</span>
+        </div>
       </div>
     );
   }
