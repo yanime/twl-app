@@ -2,6 +2,9 @@ import React from 'react';
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 
 import { auth, googleProvider } from '../fire';
+import { connect } from 'react-redux';
+import { setUser } from '../redux/actions';
+import Menu from '../components/Menu';
 
 const uiConfig = {
   signInFlow: 'signInWithRedirect',
@@ -12,35 +15,24 @@ const uiConfig = {
 };
 
 class LoginPage extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      signedIn: false,
-    };
-  }
-
   componentDidMount() {
-    auth.onAuthStateChanged(user => this.setState({ signedIn: !!user }));
+    //auth.onAuthStateChanged(user => this.props.dispatch(setUser(user)));
   }
 
   render() {
-    if (!this.state.signedIn) {
-      return (
-        <div>
-          <h1>My App</h1>
-          <p>Please sign-in:</p>
-          <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={auth} />
-        </div>
-      );
-    }
     return (
       <div>
-        <h1>My App</h1>
-        <p>Welcome {auth.currentUser.displayName}! You are now signed-in!</p>
-        <a onClick={() => auth.signOut()}>Sign-out</a>
+        <Menu />
+        <p>Please sign-in:</p>
+        <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={auth} />
       </div>
     );
   }
 }
 
-export default LoginPage;
+function mapStateToProps(state) {
+  const { user } = state;
+  return { user };
+}
+
+export default connect(mapStateToProps)(LoginPage);

@@ -5,7 +5,7 @@ const BUILD_DIR = path.resolve(__dirname, 'dist');
 const APP_DIR = path.resolve(__dirname, 'src');
 
 const config = {
-  entry: APP_DIR + '/index.js',
+  entry: `${APP_DIR}/index.js`,
   output: {
     path: BUILD_DIR,
     filename: 'bundle.js',
@@ -23,8 +23,8 @@ const config = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      filename: BUILD_DIR + '/index.html',
-      template: APP_DIR + '/index.html',
+      filename: `${BUILD_DIR}/index.html`,
+      template: `${APP_DIR}/index.html`,
       hash: true,
     }),
   ],

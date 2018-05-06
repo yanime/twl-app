@@ -1,19 +1,18 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import Menu from './Menu';
+import Menu from '../components/Menu';
 import { auth } from '../fire';
-import { Redirect } from 'react-router-dom';
 
 import { fetchPosts, setUser } from '../redux/actions';
 
-class PostList extends Component {
+class PostPage extends Component {
   constructor(props) {
     super(props);
   }
 
   componentDidMount() {
-    auth.onAuthStateChanged(user => this.props.dispatch(setUser(user)));
-    this.props.dispatch(fetchPosts());
+    //auth.onAuthStateChanged(user => this.props.dispatch(setUser(user)));
+    //this.props.dispatch(fetchPosts());
   }
   onLogout() {
     auth.signOut();
@@ -36,4 +35,4 @@ function mapStateToProps(state) {
   return { isFetching, items, user };
 }
 
-export default connect(mapStateToProps)(PostList);
+export default connect(mapStateToProps)(PostPage);

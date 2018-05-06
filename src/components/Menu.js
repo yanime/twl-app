@@ -10,6 +10,9 @@ import MenuIcon from 'material-ui-icons/Menu';
 class Menu extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      user: null,
+    };
   }
 
   render() {
@@ -33,7 +36,13 @@ class Menu extends Component {
                 TWL App
               </Typography>
             </div>
-            <Button color="inherit">Login</Button>
+            {this.props.name ? (
+              <span>{this.props.name}</span>
+            ) : (
+              <Button color="inherit" onClick={this.props.onLogout}>
+                Log Out
+              </Button>
+            )}
           </Toolbar>
         </AppBar>
       </div>

@@ -1,7 +1,5 @@
 import { database } from '../fire';
-
-export const REQUEST_POSTS = 'REQUEST_POSTS';
-export const RECEIVE_POSTS = 'RECEIVE_POSTS';
+import { REQUEST_POSTS, SET_USER } from './actionTypes';
 
 export function requestPosts() {
   return {
@@ -27,5 +25,12 @@ export function fetchPosts() {
     return postsRef.once('value', function(snapshot) {
       let ref = snapshot.val();
     });
+  };
+}
+
+export function setUser(user) {
+  return {
+    type: SET_USER,
+    user: user,
   };
 }
