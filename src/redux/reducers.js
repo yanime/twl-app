@@ -1,10 +1,9 @@
-import { combineReducers } from "redux";
-import { RECEIVE_POSTS, REQUEST_POSTS } from "./actions";
+import { RECEIVE_POSTS, REQUEST_POSTS } from './actions';
 
 function rootReducer(
   state = {
     isFetching: false,
-    items: []
+    items: [],
   },
   action
 ) {
@@ -12,13 +11,13 @@ function rootReducer(
     case REQUEST_POSTS:
       return Object.assign({}, state, {
         isFetching: true,
-        didInvalidate: false
+        didInvalidate: false,
       });
     case RECEIVE_POSTS:
       return Object.assign({}, state, {
         isFetching: false,
         items: action.posts,
-        lastUpdated: action.receivedAt
+        lastUpdated: action.receivedAt,
       });
     default:
       return state;

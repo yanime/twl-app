@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 
 import { auth, googleProvider } from '../fire';
@@ -11,9 +11,9 @@ const uiConfig = {
   },
 };
 
-class LoginPage extends React.Component {
-  constructor() {
-    super();
+class LoginPage extends Component {
+  constructor(props) {
+    super(props);
     this.state = {
       signedIn: false,
     };
@@ -35,7 +35,7 @@ class LoginPage extends React.Component {
     }
     return (
       <div>
-        <h1>My App</h1>
+        <h1>My</h1>
         <p>Welcome {auth.currentUser.displayName}! You are now signed-in!</p>
         <a onClick={() => auth.signOut()}>Sign-out</a>
       </div>

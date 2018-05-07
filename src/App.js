@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { render } from 'react-dom';
 import { MuiThemeProvider, createMuiTheme } from 'material-ui/styles';
-import Reboot from 'material-ui/Reboot';
+import CssBaseline from 'material-ui/CssBaseline';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import PostList from './components/PostList';
@@ -12,12 +12,12 @@ import configureStore from './redux/configureStore';
 
 const store = configureStore();
 
-class App extends React.Component {
+class App extends Component {
   render() {
     const theme = createMuiTheme({});
     return (
       <MuiThemeProvider theme={theme}>
-        <Reboot />
+        <CssBaseline />
         <Provider store={store}>
           <Router>
             <div>
