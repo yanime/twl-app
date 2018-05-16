@@ -4,40 +4,22 @@ import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 import { auth, googleProvider } from '../fire';
 
 const uiConfig = {
-  signInFlow: 'signInWithRedirect',
+  signInFlow: 'popup',
+  signInSuccessUrl: '/home',
   signInOptions: [googleProvider],
-  callbacks: {
-    signInSuccess: () => false,
-  },
 };
 
 class LoginPage extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      signedIn: false,
-    };
-  }
-
-  componentDidMount() {
-    auth.onAuthStateChanged(user => this.setState({ signedIn: !!user }));
   }
 
   render() {
-    if (!this.state.signedIn) {
-      return (
-        <div>
-          <h1>My App</h1>
-          <p>Please sign-in:</p>
-          <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={auth} />
-        </div>
-      );
-    }
     return (
       <div>
-        <h1>My</h1>
-        <p>Welcome {auth.currentUser.displayName}! You are now signed-in!</p>
-        <a onClick={() => auth.signOut()}>Sign-out</a>
+        <h1>TWL App</h1>
+        <p>Please sign-in:</p>
+        <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={auth} />
       </div>
     );
   }
