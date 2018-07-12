@@ -21,9 +21,6 @@ class Menu extends Component {
         <AppBar position="static">
           <Toolbar style={{ display: 'flex', justifyContent: 'space-between' }}>
             <div style={{ display: 'flex' }}>
-              <IconButton color="inherit" aria-label="Menu">
-                <MenuIcon />
-              </IconButton>
               <Typography
                 variant="title"
                 color="inherit"
@@ -36,8 +33,8 @@ class Menu extends Component {
                 TWL App
               </Typography>
             </div>
-            {this.props.name ? (
-              <span>{this.props.name}</span>
+            {this.props.user ? (
+              <span>{this.props.user.name}</span>
             ) : (
               <Button color="inherit" onClick={this.props.onLogout}>
                 Log Out

@@ -23,15 +23,6 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
 );
 
 class App extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      user: null,
-    };
-  }
-  componentDidMount() {
-    //auth.onAuthStateChanged(user => this.setState({user: user}));
-  }
   render() {
     const theme = createMuiTheme({});
     return (
@@ -41,11 +32,7 @@ class App extends React.Component {
           <Router>
             <div>
               <Route exact path="/login" component={LoginPage} />
-              <PrivateRoute
-                path="/"
-                user={this.state.user}
-                component={PostsPage}
-              />
+              <Route exact path="/posts" component={PostsPage} />
             </div>
           </Router>
         </Provider>
