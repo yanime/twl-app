@@ -1,4 +1,5 @@
 import firebase from 'firebase';
+
 export const config = {
   apiKey: 'AIzaSyAloUSh3ECjpCVF8tw6w6ZntAlnclC1st4',
   authDomain: 'twl-app-fd76e.firebaseapp.com',
@@ -12,8 +13,10 @@ if (!firebase.apps.length) {
   firebase.initializeApp(config);
 }
 
-export const database = firebase.database();
+const googleProvider = firebase.auth.GoogleAuthProvider.PROVIDER_ID;
 
-export const auth = firebase.auth();
+const auth = firebase.auth();
 
-export const googleProvider = firebase.auth.GoogleAuthProvider.PROVIDER_ID;
+const database = firebase.database();
+
+export { googleProvider, auth, database };

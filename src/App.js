@@ -1,7 +1,7 @@
 import React from 'react';
 import { MuiThemeProvider, createMuiTheme } from 'material-ui/styles';
-import Reboot from 'material-ui/Reboot';
-import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
+import CssBaseline from 'material-ui/CssBaseline';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import PostsPage from './pages/Posts';
 import LoginPage from './pages/Login';
@@ -11,21 +11,12 @@ import configureStore from './redux/configureStore';
 
 const store = configureStore();
 
-const PrivateRoute = ({ component: Component, ...rest }) => (
-  <Route
-    {...rest}
-    render={props =>
-      rest.user !== null ? <Component {...props} /> : <Redirect to="/login" />
-    }
-  />
-);
-
 class App extends React.Component {
   render() {
     const theme = createMuiTheme({});
     return (
       <MuiThemeProvider theme={theme}>
-        <Reboot />
+        <CssBaseline />
         <Provider store={store}>
           <Router>
             <div>
