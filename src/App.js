@@ -1,9 +1,7 @@
 import React from 'react';
-import { render } from 'react-dom';
 import { MuiThemeProvider, createMuiTheme } from 'material-ui/styles';
 import Reboot from 'material-ui/Reboot';
 import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
-import { auth } from './fire';
 
 import PostsPage from './pages/Posts';
 import LoginPage from './pages/Login';

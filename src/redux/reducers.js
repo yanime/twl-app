@@ -3,7 +3,7 @@ import { RECEIVE_POSTS, REQUEST_POSTS, SET_USER } from './actionTypes';
 function rootReducer(
   state = {
     isFetching: false,
-    posts: [],
+    posts: {},
     user: null,
   },
   action

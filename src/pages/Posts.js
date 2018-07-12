@@ -48,7 +48,7 @@ class PostPage extends Component {
         ) : null}
         <Menu onLogout={this.onLogout} name={this.props.user} />
         <div className="post-list">
-          <span>number of posts {this.props.posts.length}</span>
+          <span>number of posts {Object.keys(this.props.posts).length}</span>
         </div>
       </div>
     );
