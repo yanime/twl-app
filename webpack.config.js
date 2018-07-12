@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+var DashboardPlugin = require('webpack-dashboard/plugin');
 
 const BUILD_DIR = path.resolve(__dirname, 'dist');
 const APP_DIR = path.resolve(__dirname, 'src');
@@ -27,6 +28,7 @@ const config = {
       template: `${APP_DIR}/index.html`,
       hash: true,
     }),
+    new DashboardPlugin(),
   ],
   devServer: {
     contentBase: path.join(__dirname, 'dist'),

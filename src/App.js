@@ -1,10 +1,9 @@
-import React, { Component } from 'react';
-import { render } from 'react-dom';
+import React from 'react';
 import { MuiThemeProvider, createMuiTheme } from 'material-ui/styles';
 import CssBaseline from 'material-ui/CssBaseline';
-import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
-import HomePage from './pages/Home';
+import PostsPage from './pages/Posts';
 import LoginPage from './pages/Login';
 
 import { Provider } from 'react-redux';
@@ -12,7 +11,7 @@ import configureStore from './redux/configureStore';
 
 const store = configureStore();
 
-class App extends Component {
+class App extends React.Component {
   render() {
     const theme = createMuiTheme({});
     return (
@@ -21,17 +20,8 @@ class App extends Component {
         <Provider store={store}>
           <Router>
             <div>
-              <Route
-                exact
-                path="/login"
-                render={props => <LoginPage {...props} />}
-              />
-              <Route
-                exact
-                path="/home"
-                render={props => <HomePage {...props} />}
-              />
-              <Route exact path="/" render={() => <Redirect to="/login" />} />
+              <Route exact path="/login" component={LoginPage} />
+              <Route exact path="/posts" component={PostsPage} />
             </div>
           </Router>
         </Provider>

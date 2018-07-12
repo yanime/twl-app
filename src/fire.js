@@ -17,4 +17,6 @@ const googleProvider = firebase.auth.GoogleAuthProvider.PROVIDER_ID;
 
 const auth = firebase.auth();
 
-export { googleProvider, auth };
+const database = firebase.database();
+
+export { googleProvider, auth, database };

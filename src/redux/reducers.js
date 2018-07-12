@@ -1,9 +1,10 @@
-import { RECEIVE_POSTS, REQUEST_POSTS } from './actions';
+import { RECEIVE_POSTS, REQUEST_POSTS, SET_USER } from './actionTypes';
 
 function rootReducer(
   state = {
     isFetching: false,
-    items: [],
+    posts: {},
+    user: null,
   },
   action
 ) {
@@ -16,8 +17,13 @@ function rootReducer(
     case RECEIVE_POSTS:
       return Object.assign({}, state, {
         isFetching: false,
-        items: action.posts,
+        posts: action.payload,
         lastUpdated: action.receivedAt,
+      });
+    case SET_USER:
+      return Object.assign({}, state, {
+        isFetching: false,
+        user: action.user,
       });
     default:
       return state;

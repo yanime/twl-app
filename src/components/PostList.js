@@ -1,22 +1,18 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Menu from './Menu';
+import { auth } from '../fire';
 
-import { fetchPosts } from '../redux/actions';
+import { fetchPosts, setUser } from '../redux/actions';
 
 class PostList extends Component {
   constructor(props) {
     super(props);
   }
 
-  componentDidMount() {
-    this.props.dispatch(fetchPosts());
-  }
-
   render() {
     return (
       <div>
-        <Menu />
         <div className="post-list">
           <span>number of posts {this.props.items.length}</span>
         </div>
@@ -26,8 +22,8 @@ class PostList extends Component {
 }
 
 function mapStateToProps(state) {
-  const { isFetching, items } = state;
-  return { isFetching, items };
+  const { isFetching, items, user } = state;
+  return { isFetching, items, user };
 }
 
 export default connect(mapStateToProps)(PostList);
