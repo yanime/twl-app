@@ -2,7 +2,7 @@ import { RECEIVE_POSTS, REQUEST_POSTS, SET_USER } from './actionTypes';
 
 function rootReducer(
   state = {
-    isFetching: false,
+    isFetching: true,
     posts: {},
     user: null,
   },
@@ -22,7 +22,7 @@ function rootReducer(
       });
     case SET_USER:
       return Object.assign({}, state, {
-        isFetching: false,
+        isFetching: true,
         user: action.user,
       });
     default:

@@ -5,6 +5,7 @@ import CircularProgress from 'material-ui/progress/CircularProgress';
 import { auth, googleProvider } from '../fire';
 import { connect } from 'react-redux';
 import Menu from '../components/Menu';
+import Card from '../components/Card';
 
 import { setUser } from '../redux/actions';
 

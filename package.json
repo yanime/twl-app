@@ -25,14 +25,14 @@
     "firebase": "^5.2.0",
     "material-ui": "^1.0.0-beta.33",
     "material-ui-icons": "^1.0.0-beta.36",
-    "npm": "^6.1.0",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
     "react-firebaseui": "^3.0.4",
     "react-redux": "^5.0.6",
     "react-router-dom": "^4.2.2",
     "redux": "^4.0.0",
-    "redux-thunk": "^2.2.0"
+    "redux-thunk": "^2.2.0",
+    "styled-components": "^3.4.2"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
@@ -44,6 +44,7 @@
     "husky": "^0.14.3",
     "lint-staged": "^6.1.1",
     "prettier": "1.10.2",
+    "react-motion": "^0.5.2",
     "redux-logger": "^3.0.6",
     "webpack": "^4.6.0",
     "webpack-cli": "^2.1.2",

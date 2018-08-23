@@ -3,17 +3,12 @@ import { connect } from 'react-redux';
 import Menu from '../components/Menu';
 import { auth } from '../fire';
 import CircularProgress from 'material-ui/progress/CircularProgress';
+import Button from 'material-ui/Button';
 
 import { fetchPosts, setUser } from '../redux/actions';
+import { spacing } from 'material-ui/styles';
 
 class PostPage extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isLoading: true,
-    };
-  }
-
   componentDidMount() {
     auth.onAuthStateChanged(user => {
       if (user) {
@@ -30,25 +25,46 @@ class PostPage extends Component {
     auth.signOut();
   }
 
+  renderPosts(posts) {
+    const postsArray = Object.values(posts);
+    return postsArray.map(post => {
+      return (
+        <div>
+          <div>
+            <span>{post.title}</span>
+            <p>{post.summary}</p>
+          </div>
+          <div>
+            <Button color="blue">Edit</Button>
+            <Button color="blue">Delete</Button>
+          </div>
+        </div>
+      );
+    });
+  }
+
   render() {
     return (
       <div>
-        {this.props.isFetching ? (
-          <div
-            style={{
-              width: '100%',
-              height: '100vh',
-              position: 'absolute',
-              backgroundColor: '#ffffff',
-              zIndex: '9999',
-            }}
-          >
-            <CircularProgress size={50} />
-          </div>
-        ) : null}
-        <Menu onLogout={this.onLogout} name={this.props.user} />
+        <Menu onLogout={this.onLogout} user={this.props.user} />
         <div className="post-list">
-          <span>number of posts {Object.keys(this.props.posts).length}</span>
+          {this.props.isFetching ? (
+            <div
+              style={{
+                width: '100%',
+                height: '100vh',
+                position: 'absolute',
+                backgroundColor: '#ffffff',
+                zIndex: '9999',
+              }}
+            >
+              <CircularProgress size={50} />
+            </div>
+          ) : Object.keys(this.props.posts).length ? (
+            this.renderPosts(this.props.posts)
+          ) : (
+            <span>No posts available</span>
+          )}
         </div>
       </div>
     );

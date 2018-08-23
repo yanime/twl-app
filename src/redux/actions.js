@@ -28,7 +28,7 @@ export function savePost(post) {
 export function fetchPosts() {
   let postsRef = database.ref('posts');
   return dispatch => {
-    requestPosts();
+    dispatch(requestPosts());
     return postsRef.once('value', function(snapshot) {
       let ref = snapshot.val();
       dispatch(receivePosts(ref));

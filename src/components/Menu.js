@@ -6,13 +6,6 @@ import Typography from 'material-ui/Typography';
 import Button from 'material-ui/Button';
 
 class Menu extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      user: null,
-    };
-  }
-
   render() {
     return (
       <div>
@@ -31,12 +24,13 @@ class Menu extends Component {
                 TWL App
               </Typography>
             </div>
-            {this.props.user ? (
-              <span>{this.props.user.name}</span>
-            ) : (
-              <Button color="inherit" onClick={this.props.onLogout}>
-                Log Out
-              </Button>
+            {this.props.user && (
+              <div>
+                <span>{this.props.user.displayName}</span>
+                <Button color="inherit" onClick={this.props.onLogout}>
+                  Log Out
+                </Button>
+              </div>
             )}
           </Toolbar>
         </AppBar>
