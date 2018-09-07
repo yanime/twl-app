@@ -21,10 +21,10 @@
   "author": "Igor Chiriac",
   "license": "ISC",
   "dependencies": {
+    "@material-ui/core": "^3.0.2",
+    "@material-ui/icons": "^3.0.1",
     "axios": "^0.18.0",
     "firebase": "^5.2.0",
-    "material-ui": "^1.0.0-beta.33",
-    "material-ui-icons": "^1.0.0-beta.36",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
     "react-firebaseui": "^3.0.4",

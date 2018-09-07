@@ -2,11 +2,10 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Menu from '../components/Menu';
 import { auth } from '../fire';
-import CircularProgress from 'material-ui/progress/CircularProgress';
-import Button from 'material-ui/Button';
+import CircularProgress from '@material-ui/core/CircularProgress';
+import Button from '@material-ui/core/Button';
 
 import { fetchPosts, setUser } from '../redux/actions';
-import { spacing } from 'material-ui/styles';
 
 class PostPage extends Component {
   componentDidMount() {
@@ -27,16 +26,16 @@ class PostPage extends Component {
 
   renderPosts(posts) {
     const postsArray = Object.values(posts);
-    return postsArray.map(post => {
+    return postsArray.map((post, index) => {
       return (
-        <div>
+        <div key={index}>
           <div>
             <span>{post.title}</span>
             <p>{post.summary}</p>
           </div>
           <div>
-            <Button color="blue">Edit</Button>
-            <Button color="blue">Delete</Button>
+            <Button color="primary">Edit</Button>
+            <Button color="secondary">Delete</Button>
           </div>
         </div>
       );

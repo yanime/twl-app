@@ -1,6 +1,8 @@
 import React from 'react';
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
-import CircularProgress from 'material-ui/progress/CircularProgress';
+import CircularProgress from '@material-ui/core/CircularProgress';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
 
 import { auth, googleProvider } from '../fire';
 import { connect } from 'react-redux';
@@ -55,7 +57,6 @@ class LoginPage extends React.Component {
           </div>
         ) : null}
         <div style={{ position: 'relative' }}>
-          <Menu />
           <p>Please sign-in:</p>
           <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={auth} />
         </div>

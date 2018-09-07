@@ -1,7 +1,6 @@
 import React from 'react';
-import { MuiThemeProvider, createMuiTheme } from 'material-ui/styles';
-import CssBaseline from 'material-ui/CssBaseline';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
+import CssBaseline from '@material-ui/core/CssBaseline';
 
 import PostsPage from './pages/Posts';
 import LoginPage from './pages/Login';
@@ -13,9 +12,8 @@ const store = configureStore();
 
 class App extends React.Component {
   render() {
-    const theme = createMuiTheme({});
     return (
-      <MuiThemeProvider theme={theme}>
+      <React.Fragment>
         <CssBaseline />
         <Provider store={store}>
           <Router>
@@ -25,7 +23,7 @@ class App extends React.Component {
             </div>
           </Router>
         </Provider>
-      </MuiThemeProvider>
+      </React.Fragment>
     );
   }
 }
