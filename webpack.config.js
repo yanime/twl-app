@@ -1,6 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-var DashboardPlugin = require('webpack-dashboard/plugin');
+const DashboardPlugin = require('webpack-dashboard/plugin');
 
 const BUILD_DIR = path.resolve(__dirname, 'dist');
 const APP_DIR = path.resolve(__dirname, 'src');
@@ -10,6 +10,7 @@ const config = {
   output: {
     path: BUILD_DIR,
     filename: 'bundle.js',
+    publicPath: '/',
   },
   module: {
     rules: [
@@ -35,7 +36,6 @@ const config = {
     compress: true,
     historyApiFallback: true,
     port: 3000,
-    watchContentBase: true,
   },
 };
 

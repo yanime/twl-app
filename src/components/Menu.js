@@ -4,6 +4,7 @@ import AppBar from '@material-ui/core/AppBar';
 import Button from '@material-ui/core/Button';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
+import { Link } from 'react-router-dom';
 
 class Menu extends Component {
   render() {
@@ -20,6 +21,9 @@ class Menu extends Component {
           {this.props.user && (
             <div>
               <span>{this.props.user.displayName}</span>
+              <Link to={`/posts/new`} className="link">
+                New Post
+              </Link>
               <Button onClick={this.props.onLogout}>Log Out</Button>
             </div>
           )}
