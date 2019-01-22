@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import CssBaseline from '@material-ui/core/CssBaseline';
 
@@ -14,18 +14,18 @@ const store = configureStore();
 class App extends React.Component {
   render() {
     return (
-      <React.Fragment>
+      <Fragment>
         <CssBaseline />
         <Provider store={store}>
           <Router>
             <Switch>
-              <Route exact path="/login" component={LoginPage} />
+              <Route exact path="/" component={LoginPage} />
               <Route exact path="/posts" component={PostsPage} />
               <Route path="/posts/new" component={NewPost} />
             </Switch>
           </Router>
         </Provider>
-      </React.Fragment>
+      </Fragment>
     );
   }
 }

@@ -11,6 +11,8 @@ The app is build with
 - webpack v4 for code bundling
 - yarn - package management
 
-For auth the google auth will be used with auth0. 
+For auth the google auth will be used with auth0.
+
+Current bundle size 1.43 mb
 
 

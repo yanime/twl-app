@@ -17,7 +17,6 @@ export function receivePosts(payload) {
 export function savePost(post) {
   let postsRef = database.ref('posts');
   return dispatch => {
-    dispatch(requestPosts());
     return postsRef.push({
       title: post.title,
       summary: post.summary,

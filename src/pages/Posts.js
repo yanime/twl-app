@@ -16,7 +16,7 @@ class PostPage extends Component {
           this.props.dispatch(fetchPosts());
         });
       } else {
-        this.props.history.push('/login');
+        this.props.history.push('/');
       }
     });
   }
